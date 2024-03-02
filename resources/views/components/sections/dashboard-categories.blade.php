@@ -1,6 +1,13 @@
 <div class="w-full px-6 py-6 mx-auto">
     <div class="flex flex-wrap -mx-3">
         <div class="flex-none w-full max-w-full px-3">
+            @if(session('success'))
+                <div class=" p-4 my-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert"
+                     id="successMessage">
+                    <strong class="font-bold">Success!</strong>
+                    <span class="block sm:inline">{{ session('success') }}</span>
+                </div>
+            @endif
             <div
                 class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
                 <div
@@ -27,7 +34,7 @@
                                     <x-elements.td>
                                         <img src="{{ asset('storage/'.$category->image->path)}}"
                                              class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-soft-in-out h-9 w-9 rounded-xl"
-                                             alt="user1"/>{{ $category->name }}
+                                             alt="user1"/>{{ $category->id}} | {{ $category->name }}
                                     </x-elements.td>
 
                                     <x-elements.td>{{ $category->description }}</x-elements.td>
@@ -45,12 +52,12 @@
                                             type="button">
                                             <x-svg-icon name="edit"/>
                                         </button>
-                                        <x-modals.category-update :slug="$category->slug"/>
+                                        <x-modals.category-update :slug="$category"/>
 
-                                        <x-modals.button modalId="category-delete" >
+                                        <x-modals.button modalId="category-delete">
                                             <x-svg-icon name="delete"/>
                                         </x-modals.button>
-                                        <x-modals.category-delete :slug="$category->slug"/>
+                                        <x-modals.category-delete :slug="$category"/>
                                     </td>
                                 </tr>
                             @empty

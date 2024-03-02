@@ -1,5 +1,5 @@
 @props(["slug"])
-<x-modals.modal modalId="category-delete" modalTitle="Categories" width="max-w-lg">
+<x-modals.modal modalId="category-delete" modalTitle="Supprimer Categorie" width="max-w-lg">
     <div class="p-4 md:p-5 text-center">
         <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true"
              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">

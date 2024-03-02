@@ -28,6 +28,18 @@
 <body class="m-0 font-sans antialiased font-normal text-base leading-default bg-gray-50 text-slate-500">
 @yield('content')
 
+
+
+<script>
+    setTimeout(function() {
+        document.getElementById('successMessage').style.display = 'none';
+    }, 5000);
+
+    setTimeout(function() {
+        document.getElementById('errorMessage').style.display = 'none';
+    }, 5000);
+
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 
 <!-- plugin for charts  -->

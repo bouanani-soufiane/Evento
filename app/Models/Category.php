@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\trait\ImageUpload;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -10,6 +11,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+    use ImageUpload;
+
     protected $with = ['image'];
 
     use HasFactory, Sluggable;

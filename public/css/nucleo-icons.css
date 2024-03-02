@@ -595,3 +595,43 @@ License - nucleoapp.com/license/
 
 
 /* all icon font classes list here */
+
+/* Style for the file input */
+.file-upload {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    padding: 8px 20px;
+    border-radius: 5px;
+    color: #333;
+}
+
+.file-upload input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+}
+
+/* Style for the file input text */
+.file-upload::before {
+    content: "Sélectionner le fichier à télécharger";
+}
+
+/* Style for when file is selected */
+.file-upload input[type="file"]:focus + label::before,
+.file-upload input[type="file"]:valid + label::before {
+    content: attr(data-file-name);
+}
+
+/* Optional: Style for hover state */
+.file-upload:hover {
+    background-color: #e0e0e0;
+}
