@@ -7,7 +7,8 @@
                     class="relative bg-clip-border rounded-xl overflow-hidden bg-transparent text-gray-700 shadow-none m-0 flex items-center justify-between p-6">
                     <h6>Catégories d'événements</h6>
 
-                    <x-modals.button modalId="category-create" style="true">Create Category</x-modals.button>
+
+                    <x-modals.button modalId="category-create" :styled="true">Créer une catégorie</x-modals.button>
                 </div>
                 <div class="flex-auto px-0 pt-0 pb-2">
                     <div class="p-0 overflow-x-auto">
@@ -21,13 +22,10 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach ($categories as $category)
-
+                            @forelse ($categories as $category)
                                 <tr>
-
-
                                     <x-elements.td>
-                                        <img src="../img/team-2.jpg"
+                                        <img src="{{ asset('storage/'.$category->image->path)}}"
                                              class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-soft-in-out h-9 w-9 rounded-xl"
                                              alt="user1"/>{{ $category->name }}
                                     </x-elements.td>
@@ -49,16 +47,20 @@
                                         </button>
                                         <x-modals.category-update :slug="$category->slug"/>
 
-                                        <x-modals.button modalId="category-delete">
+                                        <x-modals.button modalId="category-delete" >
                                             <x-svg-icon name="delete"/>
                                         </x-modals.button>
                                         <x-modals.category-delete :slug="$category->slug"/>
                                     </td>
                                 </tr>
-                            @endforeach
+                            @empty
+                                <x-elements.no_data/>
+                            @endforelse
                             </tbody>
                         </table>
-                        <x-sections.pagination :model="$categories"/>
+                        @if ($categories->isNotEmpty())
+                            <x-sections.pagination :model="$categories"/>
+                        @endif
                     </div>
                 </div>
             </div>

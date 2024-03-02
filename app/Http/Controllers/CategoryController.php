@@ -28,7 +28,6 @@ class CategoryController extends Controller
 
     public function update(CategoryRequest $request, Category $category)
     {
-//        dd($request);
         $validatedData = $request->validated();
         $category->update($validatedData);
         $this->storeImg($category, $request->file('image'));
