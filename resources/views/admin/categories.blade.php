@@ -5,5 +5,6 @@
 
     <x-modals.category-create />
 
+    <script src="{{asset('js/category-edit.js')}}"></script>
 
 </x-dashboard>

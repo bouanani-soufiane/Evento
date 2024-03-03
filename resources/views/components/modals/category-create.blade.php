@@ -6,9 +6,6 @@
             <x-inputs.textarea name="description" label="description"/>
                 <input type="file" id="myFile" name="image">
 {{--            <x-inputs.file name="image"></x-inputs.file>--}}
-
-
-
         </div>
         <div class="flex justify-center">
             <button type="submit"

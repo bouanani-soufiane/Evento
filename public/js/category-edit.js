@@ -10,7 +10,11 @@ document.addEventListener("DOMContentLoaded", function () {
             let slug = this.getAttribute("data-slug");
             category.name.value = this.getAttribute("data-name");
             category.description.value = this.getAttribute("data-description");
+            modal.action = `http://localhost/dashboard/categories/${slug}`
             console.log(modal)
         });
     });
 });
+
+
+

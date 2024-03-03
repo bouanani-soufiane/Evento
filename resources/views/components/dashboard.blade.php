@@ -41,4 +41,5 @@
             </div>
         </footer>
     </main>
+
 @endsection

@@ -20,15 +20,12 @@ class CategoryController extends Controller
 
     public function store(CategoryRequest $request)
     {
-        dd($request);
         try {
             $validatedData = $request->validated();
             $category = Category::create($validatedData);
             $this->storeImg($category, $request->file('image'));
 
             return redirect()->back()->with("success", "Catégorie créée avec succès.");
-        } catch (QueryException $e) {
-            return redirect()->back()->with("error", "Une erreur s'est produite lors de la création de la catégorie!.");
         } catch (\Exception $e) {
             return redirect()->back()->with("error", "Une erreur imprévue s'est produite!.");
         }
@@ -39,7 +36,7 @@ class CategoryController extends Controller
         try {
             $validatedData = $request->validated();
             $category->update($validatedData);
-            $this->storeImg($category, $request->file('image'));
+            $this->updateImg($category, $request->file('image'));
 
             return redirect()->back()->with("success", "Catégorie mise à jour avec succès!.");
         } catch (\Exception $e) {
