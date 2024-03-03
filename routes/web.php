@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::resource("/dashboard/categories", \App\Http\Controllers\CategoryController::class);
 Route::resource("/dashboard/events", \App\Http\Controllers\EventController::class);
+Route::post('dashboard/events/verify/{event}',[\App\Http\Controllers\EventController::class , 'verify'])->name('events.verify');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

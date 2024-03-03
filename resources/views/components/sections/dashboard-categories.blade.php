@@ -2,7 +2,8 @@
     <div class="flex flex-wrap -mx-3">
         <div class="flex-none w-full max-w-full px-3">
             @if(session('success'))
-                <div class=" p-4 my-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert"
+                <div class=" p-4 my-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
+                     role="alert"
                      id="successMessage">
                     <strong class="font-bold">Success!</strong>
                     <span class="block sm:inline">{{ session('success') }}</span>
@@ -54,10 +55,12 @@
                                         </button>
                                         <x-modals.category-update :slug="$category"/>
 
-                                        <x-modals.button modalId="category-delete">
-                                            <x-svg-icon name="delete"/>
-                                        </x-modals.button>
-                                        <x-modals.category-delete :slug="$category"/>
+                                        <button data-modal-target="category-delete" data-modal-toggle="category-delete"
+                                                data-slug="{{$category->slug}}"
+                                                type="button">
+                                            <x-svg-icon name="delete"></x-svg-icon>
+                                        </button>
+                                        <x-modals.category-delete />
                                     </td>
                                 </tr>
                             @empty

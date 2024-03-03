@@ -6,5 +6,6 @@
     <x-modals.category-create />
 
     <script src="{{asset('js/category-edit.js')}}"></script>
+    <script src="{{asset('js/category-delete.js')}}"></script>
 
 </x-dashboard>

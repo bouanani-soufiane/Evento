@@ -43,14 +43,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 
-<!-- plugin for charts  -->
-<script src="../js/plugins/chartjs.min.js" async></script>
-<!-- plugin for scrollbar  -->
-<script src="../js/plugins/perfect-scrollbar.min.js" async></script>
-<!-- github button -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-<!-- main script file  -->
-<script src="../js/soft-ui-dashboard-tailwind.js?v=1.0.5" async></script>
 </body>
 
 </html>
