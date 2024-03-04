@@ -14,12 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource("/", \App\Http\Controllers\HomeController::class);
 
 Route::resource("/dashboard/categories", \App\Http\Controllers\CategoryController::class);
 Route::resource("/dashboard/events", \App\Http\Controllers\EventController::class);
+Route::resource("/reservation", \App\Http\Controllers\ReservationController::class);
 Route::post('dashboard/events/verify/{event}',[\App\Http\Controllers\EventController::class , 'verify'])->name('events.verify');
 
 Route::middleware('auth')->group(function () {
