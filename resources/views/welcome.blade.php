@@ -120,90 +120,43 @@
 
             <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
-                    <h1 class="text-4xl font-bold tracking-tight text-gray-900">Les meilleures offres <br> atterrissent ici</h1>
+                    <h1 class="text-4xl font-bold tracking-tight text-gray-900">Les meilleures offres atterrissent ici</h1>
 
-                    <div class="flex items-center">
-                        <div class="relative inline-block text-left">
-                            <div>
-                                <!-- component -->
-                                <div class="text-white items-center justify-center w-full">
-                                    <div class="flex items-center gap-x-4 lg:gap-x-6 bg-slate-300 mt-3 mb-3 rounded-full mx-auto" style="width:440px">
-                                        <div class="w-96">
-                                            <div class="relative rounded-md">
-                                                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                                                    </svg>
-
-                                                </div>
-                                                <input
-                                                    type="search" name="email" id="email"
-                                                    class="bg-slate-400 block w-full rounded-full border-0 py-1.5 pl-10 text-white placeholder:text-white placeholder focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                                    placeholder="Search">
-                                            </div>
-                                        </div>
-
-                                        <div class="relative">
-                                            <button type="button" class="-m-1.5 flex items-center p-1.5" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 15.75-2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774ZM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                                </svg>
-
-                                            </button>
-                                        </div>
-                                    </div>
+                        <form class="w-full" action="{{route('home.index')}}">
+                            <label for="default-search" class=" text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
+                            <div class="relative">
+                                <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                                    <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                                 </div>
+                                <input type="search" name="search" id="default-search" class="block p-4 pl-10 w-full text-sm text-gray-900 bg-white rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:bg-white dark:border-green-200 dark:placeholder-gray-400 dark:text-black dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Search Mockups, Logos..." required>
+                                <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-green-200 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-green-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
                             </div>
+                        </form>
 
-                        </div>
-
-
-                    </div>
                 </div>
 
                 <section aria-labelledby="products-heading" class="pb-24 pt-6">
 
                     <div class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
                         <!-- Filters -->
-                        <form class="">
+                        <form  action="{{route('home.index')}}">
 
                             <div class="border-b border-gray-200 py-6">
-
+                                <h1 class="font-bold font-weight-bold">Tous les category</h1>
                                 <div class="pt-6" id="filter-section-2">
                                     <div class="space-y-4">
-                                        <div class="flex items-center">
-                                            <input id="filter-size-0" name="size[]" value="2l" type="checkbox"
-                                                   class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                            <label for="filter-size-0" class="ml-3 text-sm text-gray-600">2L</label>
-                                        </div>
-                                        <div class="flex items-center">
-                                            <input id="filter-size-1" name="size[]" value="6l" type="checkbox"
-                                                   class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                            <label for="filter-size-1" class="ml-3 text-sm text-gray-600">6L</label>
-                                        </div>
-                                        <div class="flex items-center">
-                                            <input id="filter-size-2" name="size[]" value="12l" type="checkbox"
-                                                   class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                            <label for="filter-size-2" class="ml-3 text-sm text-gray-600">12L</label>
-                                        </div>
-                                        <div class="flex items-center">
-                                            <input id="filter-size-3" name="size[]" value="18l" type="checkbox"
-                                                   class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                            <label for="filter-size-3" class="ml-3 text-sm text-gray-600">18L</label>
-                                        </div>
-                                        <div class="flex items-center">
-                                            <input id="filter-size-4" name="size[]" value="20l" type="checkbox"
-                                                   class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                            <label for="filter-size-4" class="ml-3 text-sm text-gray-600">20L</label>
-                                        </div>
-                                        <div class="flex items-center">
-                                            <input id="filter-size-5" name="size[]" value="40l" type="checkbox" checked
-                                                   class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                            <label for="filter-size-5" class="ml-3 text-sm text-gray-600">40L</label>
-                                        </div>
+                                        @foreach($categories as $category)
+                                            <div class="flex items-center">
+                                                <input id="{{$category->name}}" name="filter" value="{{$category->id}}" type="checkbox"
+                                                       class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-100 focus:ring-indigo-500">
+                                                <label for="{{$category->name}}" class="ml-3 text-sm text-gray-600">{{$category->name}}</label>
+                                            </div>
+                                        @endforeach
+
                                     </div>
                                 </div>
                             </div>
+                            <button type="submit" class="mt-2 rounded btn btn-danger bg-yellow-200 text-black hover:bg-red-500 px-4 py-2 hover:text-white">filter</button>
                         </form>
 
                         <!-- Product grid -->
@@ -293,9 +246,7 @@
 
                         </div>
                     </div>
-                    @if ($categories->isNotEmpty())
-                        <x-sections.pagination :model="$categories"/>
-                    @endif
+
                 </section>
 
 

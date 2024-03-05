@@ -79,6 +79,20 @@
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
+        <div class="mt-4 font-bold">
+            <div class="form-control">
+                <h1 class=" text-center">choisissez votre rôle</h1>
+                <label class="cursor-pointer label ml-1">
+                    <input type="radio" name="type" class="radio" value="organiser" />
+                    <span class="label-text ml-2">Organisateur</span>
+                </label>
+                <br>
+                <label class="cursor-pointer label ml-1">
+                    <input type="radio" name="type" class="radio" value="participant"/>
+                    <span class="label-text ml-2">Participant</span>
+                </label>
+            </div>
+        </div>
 
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">

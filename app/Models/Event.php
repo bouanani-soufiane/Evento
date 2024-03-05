@@ -14,6 +14,8 @@ class Event extends Model
 {
     use HasFactory, Sluggable;
 
+    protected $with = ['category', 'image'];
+
     public function sluggable(): array
     {
         return [
@@ -23,12 +25,25 @@ class Event extends Model
         ];
     }
 
+    public function scopeFilterSearch($query, array $filterSearch)
+    {
+
+        $query->when($filterSearch['search'] ?? false, fn($query, $search) => $query
+            ->where('title', 'like', '%' . $search . '%')
+        );
+        $query->when($filterSearch['filter'] ?? false, fn($query, $search) => $query
+            ->where('category_id', 'like', '%' . $search . '%')
+        );
+        if (!count(array_filter($filterSearch))) {
+            $query->latest();
+        }
+    }
+
+
     public function getRouteKeyName(): string
     {
         return 'slug';
     }
-
-    protected $with = ['image'];
     protected $fillable = [
         'title',
         'description',

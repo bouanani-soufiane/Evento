@@ -53,40 +53,6 @@
                 >Online Builder</a
               >
             </li> -->
-            <ul class="hidden pl-0 mb-0 list-none lg:block lg:flex-row">
-                <li>
-                    @if (Route::has('login'))
-                        <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                            @auth
-
-                                    <a href="{{ url('/dashboard') }}"
-                                       target="_blank"
-                                       class="leading-pro hover:scale-102 hover:shadow-soft-xs active:opacity-85 ease-soft-in text-xs tracking-tight-soft shadow-soft-md bg-gradient-to-tl from-gray-400 to-gray-100 rounded-3.5xl mb-0 mr-1 inline-block cursor-pointer border-0 bg-transparent px-8 py-2 text-center align-middle font-bold uppercase text-slate-800 transition-all">Free
-                                        download</a>
-                                </a>
-                            @else
-
-                                    <a
-                                        href="{{ route('login') }}"
-                                       target="_blank"
-                                       class="leading-pro hover:scale-102 hover:shadow-soft-xs active:opacity-85 ease-soft-in text-xs tracking-tight-soft shadow-soft-md bg-gradient-to-tl from-gray-400 to-gray-100 rounded-3.5xl mb-0 mr-1 inline-block cursor-pointer border-0 bg-transparent px-8 py-2 text-center align-middle font-bold uppercase text-slate-800 transition-all">login
-                                    </a>
-
-                                @if (Route::has('register'))
-
-                                        <a
-                                            href="{{ route('register') }}"
-                                           target="_blank"
-                                           class="leading-pro hover:scale-102 hover:shadow-soft-xs active:opacity-85 ease-soft-in text-xs tracking-tight-soft shadow-soft-md bg-gradient-to-tl from-gray-400 to-gray-100 rounded-3.5xl mb-0 mr-1 inline-block cursor-pointer border-0 bg-transparent px-8 py-2 text-center align-middle font-bold uppercase text-slate-800 transition-all">register</a>
-                                @endif
-                            @endauth
-                        </div>
-                    @endif
-                    <a  target="_blank"
-                       class="leading-pro hover:scale-102 hover:shadow-soft-xs active:opacity-85 ease-soft-in text-xs tracking-tight-soft shadow-soft-md bg-gradient-to-tl from-gray-400 to-gray-100 rounded-3.5xl mb-0 mr-1 inline-block cursor-pointer border-0 bg-transparent px-8 py-2 text-center align-middle font-bold uppercase text-slate-800 transition-all">Free
-                        download</a>
-                </li>
-            </ul>
         </div>
     </div>
 </nav>

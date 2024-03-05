@@ -7,6 +7,8 @@ use App\Models\Category;
 use App\Models\Event;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -44,6 +46,21 @@ class DatabaseSeeder extends Seeder
                 'imageable_type' => 'App\Models\Event',
             ]);
         }
+        Role::updateOrCreate(['name' => 'participant']);
+        Role::updateOrCreate(['name' => 'organiser']);
+        Role::updateOrCreate(['name' => 'admin']);
+
+
+        Permission::updateOrCreate(['name' => 'list users']);
+        Permission::updateOrCreate(['name' => 'delete users']);
+        Permission::updateOrCreate(['name' => 'create event']);
+        Permission::updateOrCreate(['name' => 'edit event']);
+        Permission::updateOrCreate(['name' => 'delete event']);
+        Permission::updateOrCreate(['name' => 'verify event']);
+        Permission::updateOrCreate(['name' => 'create category']);
+        Permission::updateOrCreate(['name' => 'edit category']);
+        Permission::updateOrCreate(['name' => 'delete category']);
+        Permission::updateOrCreate(['name' => 'create category']);
 
     }
 }

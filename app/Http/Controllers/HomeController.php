@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use App\Models\Category;
 use App\Models\Event;
+use App\Models\Organiser;
+use App\Models\Participant;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,13 +14,15 @@ class HomeController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::paginate(3);
-        $events = Event::with('category')
-            ->orderBy('id', 'asc')
-            ->paginate(4);
-        return view('welcome', compact('categories','events'));
+
+        $events = Event::FilterSearch(request(['search', 'filter']))->get();
+
+        $categories = Category::all();
+
+        return view('welcome', compact('categories', 'events'));
     }
+
 
 }

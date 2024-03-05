@@ -10,11 +10,12 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Parental\HasChildren;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable,HasRoles;
+    use HasApiTokens, HasFactory, Notifiable,HasRoles,HasChildren;
 
 
     /**
@@ -26,9 +27,14 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'type'
     ];
     protected $with = ['image'];
-
+    protected $childTypes = [
+        'admin' => Admin::class,
+        'organiser' => Organiser::class,
+        'participant' => Participant::class,
+    ];
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -61,5 +67,17 @@ class User extends Authenticatable
     public function event() : HasMany
     {
         return $this->hasMany(Event::class);
+    }
+    public function admin(): HasMany
+    {
+        return $this->hasMany(Admin::class, 'user');
+    }
+    public function organiser(): HasMany
+    {
+        return $this->hasMany(Organiser::class, 'user');
+    }
+    public function participant(): HasMany
+    {
+        return $this->hasMany(Participant::class, 'user');
     }
 }

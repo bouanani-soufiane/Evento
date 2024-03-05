@@ -40,7 +40,7 @@
 
                                     <x-elements.td>{{ $category->description }}</x-elements.td>
 
-                                    <x-elements.td>{{ $category->name }}</x-elements.td>
+                                    <x-elements.td>{{ $category->event_count }}</x-elements.td>
 
                                     <td class="py-3 px-5 border-b border-blue-gray-50 flex items-center gap-2">
                                         <button
