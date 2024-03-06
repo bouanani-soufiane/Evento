@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\EventRequest;
 use App\Models\Category;
 use App\Models\Event;
+use App\Models\reservation;
 use App\trait\ImageUpload;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,8 @@ class EventController extends Controller
 
     public function show(Event $event)
     {
-        return view('single_event',compact('event'));
+        $place = reservation::where('event_id',$event->id)->count();
+        return view('single_event',compact('event','place'));
     }
 
     public function store(EventRequest $request)

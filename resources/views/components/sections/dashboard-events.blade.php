@@ -95,7 +95,7 @@
                                                 @csrf
                                                 <input type="hidden" name="oldValue" value="{{ !$event->isVerified}}">
 
-                                                <button>
+                                                <button>==
                                                     <x-svg-icon name="validate"></x-svg-icon>
                                                 </button>
                                             </form>

@@ -6,13 +6,26 @@
             <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">{{$event->title}}</h2>
             <p class="max-w-lg mx-auto mt-4 text-base leading-relaxed text-gray-600">{{$event->description}}</p>
         </div>
+
     </div>
 </section>
-
 <section class="bg-white w-fit mx-auto m-16  bg-gradient-to-b from-green-100 to-green-0">
-    <div class="grid grid-cols-1 lg:grid-cols-2">
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 relative">
+
         <div
             class="relative flex items-end px-4 md:justify-center lg:pb-24 bg-gray-50 ">
+             <span
+                 class="text-3xl font-regular  pb-4  font-['Open_Sans'] block w-full rounded-b-2xl bg-gradient-to-tr from-pink-600 to-pink-400   text-white opacity-100  left-0 absolute top-[0px] text-center z-10 w-full px-8 py-3">
+
+                 @if($event->totalPlace - $place > 0)
+                     seulement {{$event->totalPlace - $place}} places restantes
+                 @else
+                     Guichet fermé
+                 @endif
+
+
+              </span>
             <div class="absolute inset-0">
                 <img class="object-cover object-top w-full h-full"
                      src="{{ asset('storage/'.$event->image->path)}} "
@@ -67,33 +80,84 @@
             </div>
         </div>
 
-        <div class="flex items-center justify-center px-12 py-12 bg-white ">
+        <div class="w-full flex items-center justify-center px-12 py-12 bg-white relative ">
+            @if(session('success'))
+
+                <div
+                    class=" px-12 my-1 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded absolute top-0 "
+                    role="alert"
+                    id="successMessage">
+                    <strong class="font-bold">Success!</strong>
+                    <span class="block sm:inline">{{ session('success') }}</span>
+                </div>
+            @endif
+            @if(session('error'))
+
+                <div
+                    class="w-fit p-5 my-1 bg-red-400 border  border-red-500 text-white px-4 py-3 rounded absolute top-0 "
+                    role="alert"
+                    id="successMessage">
+                    <strong class="font-bold">Erreur!</strong>
+                    <span class="block sm:inline">{{ session('error') }}</span>
+                </div>
+            @endif
             <div class="xl:w-full xl:max-w-sm 2xl:max-w-md xl:mx-auto">
                 <img src="{{ asset('logo.png')}}" class="w-1/3 justify-center mx-auto">
                 <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl text-center">Prenez Votre Ticket</h2>
 
-                <form action="#" method="POST" class="mt-8">
+                <form action="{{route('reservation.store')}}" method="POST" class="mt-8"
+
+                      @if($event->totalPlace - $place <= 0)
+                          onsubmit="myButton.disabled = true; return true;"
+                    @endif
+                >
+
+                    @csrf
                     <div class="space-y-5">
+                        <input type="hidden" name="event_id" value=" {{$event->id}}">
+                        @if($event->reservationType == \App\Enums\ReservationTypeEnum::MANUAL)
+                            <input type="hidden" name="isConfirmed" value="false">
+                        @else
+                            <input type="hidden" name="isConfirmed" value="true">
+
+                        @endif
 
                         <div class="flex gap-4">
-                            <!-- Input: Designation [h-12] & min-w-[12rem] -->
                             <input
                                 class="h-12 min-w-[12rem] rounded-lg border-emerald-500 indent-4 text-emerald-900 shadow-lg focus:outline-none focus:ring focus:ring-emerald-600"
-                                type="number" placeholder="1" />
-                            <!-- Button: Submit [h-12] -->
+                                type="number" placeholder="quantité" name="quantity" />
+
                             <button
-                                class="h-12 min-w-[8rem] rounded-lg border-2 border-emerald-600 bg-emerald-500 text-emerald-50 shadow-lg hover:bg-emerald-600 focus:outline-none focus:ring focus:ring-emerald-600">
-                                Réservez
+                                class="h-12 min-w-[8rem] rounded-lg border-2 border-emerald-600 bg-emerald-500 text-emerald-50 shadow-lg hover:bg-emerald-600 focus:outline-none focus:ring focus:ring-emerald-600"
+                                name="myButton"
+                                @if($event->totalPlace - $place <= 0)
+                                id="submitButton"
+
+                                @endif
+
+                                >
+
+                                @if($event->totalPlace - $place > 0)
+                                    Réservez
+                                @else
+
+                                    Guichet fermé
+                                @endif
+
                             </button>
                         </div>
-
+                        <div class="text-red-500">
+                            @error('quantity')
+                            {{$message}}
+                            @enderror
+                        </div>
 
                     </div>
                 </form>
                 <div class="space-y-5">
 
                     <div class="flex gap-4">
-                      <h1 class="text-center font-bold mx-auto pt-4">Partagez cet événement</h1>
+                        <h1 class="text-center font-bold mx-auto pt-4">Partagez cet événement</h1>
                     </div>
                     <div class="flex justify-around my-4">
                         <!--FACEBOOK ICON-->
@@ -186,9 +250,8 @@
         </div>
     </div>
 </section>
-<div class="container mx-auto">
-    <p>Description :
-    </p>
+<div class="container mx-auto w-[1100px]">
+    <p>Description : </p>
     <p>{{$event->description}}</p>
 </div>
 <x-sections.home-footer/>
