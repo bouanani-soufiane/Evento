@@ -3,10 +3,12 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Admin;
 use App\Models\Category;
 use App\Models\Event;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -17,6 +19,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
         Category::factory()
             ->count(3)
             ->has(Event::factory()->count(2))
@@ -46,6 +49,7 @@ class DatabaseSeeder extends Seeder
                 'imageable_type' => 'App\Models\Event',
             ]);
         }
+
         Role::updateOrCreate(['name' => 'participant']);
         Role::updateOrCreate(['name' => 'organiser']);
         Role::updateOrCreate(['name' => 'admin']);
@@ -61,6 +65,21 @@ class DatabaseSeeder extends Seeder
         Permission::updateOrCreate(['name' => 'edit category']);
         Permission::updateOrCreate(['name' => 'delete category']);
         Permission::updateOrCreate(['name' => 'create category']);
+
+        $user = Admin::create([
+            'name' => 'admin',
+            'email' => 'admin@evnto.com',
+            'password' => Hash::make('password'),
+        ]);
+        $user->assignRole('admin');
+
+
+
+
+        $role = Role::findByName('admin');
+
+        $role->givePermissionTo('verify event');
+
 
     }
 }

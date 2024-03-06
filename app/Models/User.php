@@ -54,6 +54,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    protected $guard_name = 'web';
+
     public function image(): MorphOne
     {
         return $this->morphOne(Image::class, "imageable");

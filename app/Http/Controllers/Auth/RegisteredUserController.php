@@ -46,6 +46,8 @@ class RegisteredUserController extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
+            $user->assignRole('participant');
+
         }elseif($request->type == 'organiser')
         {
             $user = Organiser::create([
@@ -53,6 +55,8 @@ class RegisteredUserController extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
+            $user->assignRole('organiser');
+
         }
 
 

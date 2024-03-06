@@ -89,15 +89,17 @@
                                             <x-svg-icon name="delete"></x-svg-icon>
                                         </button>
 
+                                        @can('verify event')
 
-                                        <form action="{{route('events.verify',$event->slug)}}" method="post">
-                                            @csrf
-                                            <input type="hidden" name="oldValue" value="{{ !$event->isVerified}}">
+                                            <form action="{{route('events.verify',$event->slug)}}" method="post">
+                                                @csrf
+                                                <input type="hidden" name="oldValue" value="{{ !$event->isVerified}}">
 
-                                            <button>
-                                                <x-svg-icon name="validate"></x-svg-icon>
-                                            </button>
-                                        </form>
+                                                <button>
+                                                    <x-svg-icon name="validate"></x-svg-icon>
+                                                </button>
+                                            </form>
+                                        @endcan
                                         <x-modals.event-delete :slug="$event->slug"/>
                                     </td>
                                 </tr>

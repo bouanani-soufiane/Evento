@@ -15,9 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource("/home", \App\Http\Controllers\HomeController::class);
+Route::get('/events/{event}', [\App\Http\Controllers\EventController::class, 'show'])->name('events.shows');
 
 Route::resource("/dashboard/categories", \App\Http\Controllers\CategoryController::class);
 Route::resource("/dashboard/events", \App\Http\Controllers\EventController::class);
+Route::resource("/dashboard/users", \App\Http\Controllers\UserController::class);
 Route::resource("/reservation", \App\Http\Controllers\ReservationController::class);
 Route::post('dashboard/events/verify/{event}',[\App\Http\Controllers\EventController::class , 'verify'])->name('events.verify');
 

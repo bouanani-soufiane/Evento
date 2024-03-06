@@ -24,9 +24,10 @@ class EventController extends Controller
 
         return view("organisateur.events", compact('events', 'categories'));
     }
+
     public function show(Event $event)
     {
-
+        return view('single_event',compact('event'));
     }
 
     public function store(EventRequest $request)
@@ -66,6 +67,7 @@ class EventController extends Controller
             return redirect()->back()->with("error", "Une erreur s'est produite lors de la suppression de l'événement!.");
         }
     }
+
     public function verify(Request $request, Event $event)
     {
         try {
