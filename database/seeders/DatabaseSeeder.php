@@ -65,6 +65,7 @@ class DatabaseSeeder extends Seeder
         Permission::updateOrCreate(['name' => 'edit category']);
         Permission::updateOrCreate(['name' => 'delete category']);
         Permission::updateOrCreate(['name' => 'create category']);
+        Permission::updateOrCreate(['name' => 'make reservation']);
 
         $user = Admin::create([
             'name' => 'admin',

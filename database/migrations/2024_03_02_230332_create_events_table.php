@@ -25,6 +25,7 @@ return new class extends Migration
             $table->boolean('isVerified')->default(false);
             $table->string('reservationType')->default(ReservationTypeEnum::AUTOMATIC->value);
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

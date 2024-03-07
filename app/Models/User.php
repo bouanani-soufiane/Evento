@@ -82,4 +82,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Participant::class, 'user');
     }
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
 }

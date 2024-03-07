@@ -52,7 +52,8 @@ class Event extends Model
         'price',
         'totalPlace',
         'reservationType',
-        'category_id'
+        'category_id',
+        'user_id'
     ];
     protected $casts = [
         'reservationType' => ReservationTypeEnum::class,
@@ -65,7 +66,7 @@ class Event extends Model
 
     public function reservation(): HasMany
     {
-        return $this->hasMany(reservation::class);
+        return $this->hasMany(Reservation::class);
     }
 
     public function user(): BelongsTo

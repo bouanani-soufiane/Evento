@@ -16,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource("/home", \App\Http\Controllers\HomeController::class);
 Route::get('/events/{event}', [\App\Http\Controllers\EventController::class, 'show'])->name('events.shows');
+//Route::get('/events/organisateur/{user}', [\App\Http\Controllers\EventController::class, 'eventbyorganiser']);
+Route::post('/revokeReservation/{user}', [\App\Http\Controllers\PermissionController::class, 'revokeReservation'])->name('revokeReservation');
+Route::post('/giveReservation/{user}', [\App\Http\Controllers\PermissionController::class, 'giveReservation'])->name('giveReservation');
+
+Route::post('/reservation/valider{reservation}', [\App\Http\Controllers\ReservationController::class, 'valider'])->name('valider');
+Route::post('/reservation/decline/{reservation}', [\App\Http\Controllers\ReservationController::class, 'decline'])->name('decline');
 
 Route::resource("/dashboard/categories", \App\Http\Controllers\CategoryController::class);
 Route::resource("/dashboard/events", \App\Http\Controllers\EventController::class);

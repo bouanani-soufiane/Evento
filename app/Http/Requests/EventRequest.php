@@ -31,6 +31,7 @@ class EventRequest extends FormRequest
             'reservationType' => 'required|string|max:255',
             'category_id' => 'required|exists:categories,id',
             'image' => '',
+            'user_id' => '',
 
         ];
     }

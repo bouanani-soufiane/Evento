@@ -47,6 +47,7 @@ class RegisteredUserController extends Controller
                 'password' => Hash::make($request->password),
             ]);
             $user->assignRole('participant');
+            $user->givePermissionTo('make reservation');
 
         }elseif($request->type == 'organiser')
         {
@@ -56,6 +57,9 @@ class RegisteredUserController extends Controller
                 'password' => Hash::make($request->password),
             ]);
             $user->assignRole('organiser');
+            $user->givePermissionTo('create event');
+            $user->givePermissionTo('edit event');
+            $user->givePermissionTo('delete event');
 
         }
 

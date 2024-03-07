@@ -4,13 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ReservationRequest;
 use App\Models\Event;
-use App\Models\reservation;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB; // Import the DB facade at the top of your file
+use Illuminate\Support\Facades\DB;
 
 class ReservationController extends Controller
 {
+    public function show($id)
+    {
+        $events = Event::where('user_id', $id)->where('reservationType','manual')->pluck('id');
+        $reservations = Reservation::whereIn('event_id',$events)->get();
+
+
+        return view("organisateur.reservation", compact('reservations'));
+    }
 
     public function store(ReservationRequest $request)
     {
@@ -20,7 +28,7 @@ class ReservationController extends Controller
         $place_left = $total_place - $reservation_count;
 
         try {
-            if ($place_left > 0 &&  $request->quantity <= $place_left ) {
+            if ($place_left > 0 && $request->quantity <= $place_left) {
                 DB::beginTransaction();
 
                 for ($i = 0; $i < $request->quantity; $i++) {
@@ -42,27 +50,32 @@ class ReservationController extends Controller
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(reservation $reservation)
+    public function edit(Reservation $reservation)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, reservation $reservation)
+    public function valider(Reservation $reservation)
     {
-        //
+        try {
+            $reservation->isConfirmed = true;
+            $reservation->save();
+
+            return redirect()->back()->with("success", "Réservation validée avec succès!");
+        } catch (\Exception $e) {
+            return redirect()->back()->with("error", "Un erreur s'est produite lors de la validation du réservation.");
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(reservation $reservation)
+    public function decline(reservation $reservation)
     {
-        //
+        try {
+            $reservation->isConfirmed = false;
+            $reservation->save();
+
+            return redirect()->back()->with("success", "Réservation décliné avec succès!");
+        } catch (\Exception $e) {
+            return redirect()->back()->with("error", "Un erreur s'est produite lors de l'annulation de la réservation");
+        }
     }
 }

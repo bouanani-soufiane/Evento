@@ -69,6 +69,31 @@
                  xmlns="http://www.w3.org/2000/svg"><path
                     stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
     </span>
+@elseif($name === "user-remove")
+    <span
+        class="inline-block w-8 h-8 text-center text-white font-bold text-lg rounded-lg bg-gradient-to-tl from-red-500 to-pink-500">
+               <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12h4M4 18v-1a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v1c0 .6-.4 1-1 1H5a1 1 0 0 1-1-1Zm8-10a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+          </svg>
+</span>
+@elseif($name === "block")
+    <span
+        class="inline-block w-8 h-8 text-center text-white font-bold text-lg rounded-lg bg-gradient-to-tl from-red-500 to-pink-500">
+         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                          stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636"/>
+         </svg>
+</span>
+@elseif($name === "restrict")
+    <span
+        class="inline-block w-8 h-8 text-center text-white font-bold text-lg rounded-lg bg-gradient-to-tl from-red-500 to-pink-500">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" class="w-6 h-6"  stroke="currentColor" viewBox="0 0 32 32"><g data-name="no image"><path d="M24 2H8a6 6 0 0 0-6 6v16a6 6 0 0 0 6 6h3a1 1 0 0 0 0-2H8a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4h16a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4h-9a1 1 0 0 0 0 2h9a6 6 0 0 0 6-6V8a6 6 0 0 0-6-6z"/><path d="M25.71 6.29a1 1 0 0 0-1.42 0l-18 18a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l18-18a1 1 0 0 0 0-1.42z"/></g></svg>
+</span>
+@elseif($name === "giveReservation")
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+    </svg>
 
 @elseif($name === "validate")
 
