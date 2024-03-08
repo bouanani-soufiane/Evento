@@ -16,20 +16,29 @@ class EventController extends Controller
 
     public function index()
     {
-        $events = Event::with('category')
-            ->orderBy('id', 'asc')
-            ->paginate(5);
+        if (Auth::user()->type == 'organiser') {
+            $events = Event::with('category')
+                ->where('user_id', Auth::id())
+                ->orderBy('id', 'asc')
+                ->paginate(5);
+        } else {
+
+            $events = Event::with('category')
+                ->orderBy('id', 'asc')
+                ->paginate(5);
+        }
         $categories = Category::all();
 
         return view("organisateur.events", compact('events', 'categories'));
     }
+
     public function show(Event $event)
     {
         $user = Auth::user();
         if ($user->can('make reservation')) {
             $place = Reservation::where('event_id', $event->id)->count();
             return view('single_event', compact('event', 'place'));
-        }else{
+        } else {
             abort(403, "vous n'avez pas accès à la réservation .");
         }
     }
@@ -65,6 +74,7 @@ class EventController extends Controller
             return redirect()->back()->with("error", "Une erreur s'est produite lors de la mise à jour d'événement!.");
         }
     }
+
     public function destroy(Event $event)
     {
         try {
@@ -74,6 +84,7 @@ class EventController extends Controller
             return redirect()->back()->with("error", "Une erreur s'est produite lors de la suppression de l'événement!.");
         }
     }
+
     public function verify(Request $request, Event $event)
     {
         try {

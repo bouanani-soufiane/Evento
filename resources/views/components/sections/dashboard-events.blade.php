@@ -65,29 +65,33 @@
                                     </x-elements.td>
 
                                     <td class="py-3 px-5 border-b border-blue-gray-50 flex items-center gap-2">
-                                        <button
-                                            data-slug="{{ $event->slug }}"
-                                            data-title="{{ $event->title }}"
-                                            data-description="{{ $event->description }}"
-                                            data-date="{{ $event->date }}"
-                                            data-numberOfSeats="{{ $event->totalPlace }}"
-                                            data-price="{{ $event->price }}"
-                                            data-categoryId="{{ $event->category->id }}"
-                                            data-bookingType="{{ $event->reservationType }}"
-                                            data-localisation="{{ $event->localisation }}"
-                                            data-modal-target="event-update"
-                                            data-modal-toggle="event-update"
-                                            class="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 rounded-full"
-                                            type="button">
-                                            <x-svg-icon name="edit"/>
-                                        </button>
-                                        <x-modals.event-update :slug="$event" :categories="$categories"/>
 
-                                        <button data-modal-target="event-delete" data-modal-toggle="event-delete"
-                                                data-slug="{{$event->slug}}"
+                                        @can('edit event')
+                                            <button
+                                                data-slug="{{ $event->slug }}"
+                                                data-title="{{ $event->title }}"
+                                                data-description="{{ $event->description }}"
+                                                data-date="{{ $event->date }}"
+                                                data-numberOfSeats="{{ $event->totalPlace }}"
+                                                data-price="{{ $event->price }}"
+                                                data-categoryId="{{ $event->category->id }}"
+                                                data-bookingType="{{ $event->reservationType }}"
+                                                data-localisation="{{ $event->localisation }}"
+                                                data-modal-target="event-update"
+                                                data-modal-toggle="event-update"
+                                                class="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 rounded-full"
                                                 type="button">
-                                            <x-svg-icon name="delete"></x-svg-icon>
-                                        </button>
+                                                <x-svg-icon name="edit"/>
+                                            </button>
+                                            <x-modals.event-update :slug="$event" :categories="$categories"/>
+                                        @endcan
+                                        @can('delete event')
+                                            <button data-modal-target="event-delete" data-modal-toggle="event-delete"
+                                                    data-slug="{{$event->slug}}"
+                                                    type="button">
+                                                <x-svg-icon name="delete"></x-svg-icon>
+                                            </button>
+                                        @endcan
 
                                         @can('verify event')
 
@@ -95,7 +99,7 @@
                                                 @csrf
                                                 <input type="hidden" name="oldValue" value="{{ !$event->isVerified}}">
 
-                                                <button>==
+                                                <button>
                                                     <x-svg-icon name="validate"></x-svg-icon>
                                                 </button>
                                             </form>

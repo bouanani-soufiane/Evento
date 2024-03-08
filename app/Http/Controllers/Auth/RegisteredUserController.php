@@ -60,6 +60,7 @@ class RegisteredUserController extends Controller
             $user->givePermissionTo('create event');
             $user->givePermissionTo('edit event');
             $user->givePermissionTo('delete event');
+            $user->givePermissionTo('valider reservation');
 
         }
 

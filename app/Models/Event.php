@@ -30,9 +30,11 @@ class Event extends Model
 
         $query->when($filterSearch['search'] ?? false, fn($query, $search) => $query
             ->where('title', 'like', '%' . $search . '%')
+            ->where('isVerified', '=', true)
         );
         $query->when($filterSearch['filter'] ?? false, fn($query, $search) => $query
             ->where('category_id', 'like', '%' . $search . '%')
+            ->where('isVerified', '=', true)
         );
         if (!count(array_filter($filterSearch))) {
             $query->latest();

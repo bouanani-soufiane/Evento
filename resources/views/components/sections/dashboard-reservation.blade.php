@@ -13,9 +13,8 @@
                 class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
                 <div
                     class="relative bg-clip-border rounded-xl overflow-hidden bg-transparent text-gray-700 shadow-none m-0 flex items-center justify-between p-6">
-                    <h6>Evénements</h6>
+                    <h6>Réservation</h6>
 
-                    <div>{{ Auth::user()->name }}</div>
 
                 </div>
                 <div class="flex-auto px-0 pt-0 pb-2">

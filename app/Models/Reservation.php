@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Reservation extends Model
 {
     use HasFactory;
+    protected $with = ['event','user'];
     protected $fillable = ['isConfirmed', 'event_id'];
 
     public function user(): BelongsTo
