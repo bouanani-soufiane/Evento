@@ -26,17 +26,16 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="m-0 font-sans antialiased font-normal bg-white text-start text-base leading-default text-slate-500">
+    <body class="m-0 font-sans antialiased font-normal bg-gradient-to-b from-green-100 to-green-0 text-start text-base leading-default text-slate-500">
   <x-navbar/>
 
     <main class="mt-0 transition-all duration-200 ease-soft-in-out ">
         <section class="space-y-12 mb-5 min-h-75-screen">
-            <div class="relative flex items-start pt-12 pb-56 m-4 overflow-hidden bg-center bg-cover h-full  rounded-xl" style="background-image: url('https://img.freepik.com/free-photo/black-prism-concept-ai-generated_268835-7011.jpg?w=996&t=st=1709339399~exp=1709339999~hmac=0471a0426f238dcfee16db6a411ba51e05f51bfb12b530e634fda0ecd8cf7002   ')">
+            <div class="relative flex items-start pt-12 pb-[70px] m-4 overflow-hidden bg-center bg-cover h-[200px]  rounded-xl" style="background-image: url('https://img.freepik.com/free-photo/friends-throwing-up-champagne-confetti_23-2147651888.jpg?w=1060&t=st=1709907902~exp=1709908502~hmac=5ade6a5259a82ad06b2122bcaee56405776cd8151d43907606d3ab67425a0745')">
                 <span class="absolute top-0 left-0 w-full h-full bg-center bg-cover bg-gradient-to-tl from-gray-900 to-slate-800 opacity-60"></span>
                 <div class="container z-10">
                     <div class="flex flex-wrap justify-center -mx-3">
                         <div class="w-full max-w-full px-3 mx-auto mt-0 text-center lg:flex-0 shrink-0 lg:w-5/12">
-                            <h1 class="mt-12 mb-2 text-white font-bold text-6xl">Welcome!</h1>
                             <p class="text-white"></p>
                         </div>
                     </div>
@@ -49,7 +48,7 @@
 
                             <div class="flex-auto px-6 pb-6">
 
-                                <div class="w-[1200px] mx-auto sm:max-w-md  px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+                                <div class="w-[1200px] mx-auto sm:max-w-md  px-6 py-1 bg-white shadow-md overflow-hidden sm:rounded-lg">
                                     {{ $slot }}
                                 </div>
                             </div>

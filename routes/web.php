@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource("/home", \App\Http\Controllers\HomeController::class);
 Route::get('/events/{event}', [\App\Http\Controllers\EventController::class, 'show'])->name('events.shows');
-//Route::get('/events/organisateur/{user}', [\App\Http\Controllers\EventController::class, 'eventbyorganiser']);
 Route::post('/revokeReservation/{user}', [\App\Http\Controllers\PermissionController::class, 'revokeReservation'])->name('revokeReservation');
 Route::post('/giveReservation/{user}', [\App\Http\Controllers\PermissionController::class, 'giveReservation'])->name('giveReservation');
 
@@ -24,6 +23,7 @@ Route::middleware(['auth','role:admin'])->group(function () {
 
 });
 
+Route::get('/ticket/{user}', [\App\Http\Controllers\TicketController::class, 'index'])->name('ticket.index');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

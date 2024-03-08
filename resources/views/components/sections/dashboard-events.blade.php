@@ -15,10 +15,11 @@
                     class="relative bg-clip-border rounded-xl overflow-hidden bg-transparent text-gray-700 shadow-none m-0 flex items-center justify-between p-6">
                     <h6>Evénements</h6>
 
-
-                    <x-modals.button modalId="event-create" :styled="true"><i class="fas fa-plus"> </i>&nbsp;&nbsp;
-                        Créer un Evénements
-                    </x-modals.button>
+                    @can('create event')
+                        <x-modals.button modalId="event-create" :styled="true"><i class="fas fa-plus"> </i>&nbsp;&nbsp;
+                            Créer un Evénements
+                        </x-modals.button>
+                    @endcan
                 </div>
                 <div class="flex-auto px-0 pt-0 pb-2">
                     <div class="p-0 overflow-x-auto">

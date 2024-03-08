@@ -48,6 +48,7 @@ class RegisteredUserController extends Controller
             ]);
             $user->assignRole('participant');
             $user->givePermissionTo('make reservation');
+            return redirect(RouteServiceProvider::LOGIN);
 
         }elseif($request->type == 'organiser')
         {
@@ -61,6 +62,7 @@ class RegisteredUserController extends Controller
             $user->givePermissionTo('edit event');
             $user->givePermissionTo('delete event');
             $user->givePermissionTo('valider reservation');
+            return redirect(RouteServiceProvider::LOGIN);
 
         }
 

@@ -12,7 +12,7 @@
     <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
 </head>
 
-<body class="m-0 font-sans antialiased font-normal text-base leading-default bg-gray-50 text-slate-500">
+<body class="m-0 font-sans antialiased font-normal text-base leading-default bg-gray-300 text-slate-500">
 @yield('content')
 
 
