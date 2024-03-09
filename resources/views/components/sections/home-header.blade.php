@@ -47,7 +47,7 @@
                     </a>
 
 
-                    <a href="{{route('ticket.index',Auth::user())}}" title=""
+                    <a href="{{route('ticket.index')}}" title=""
                        class="text-base font-semibold text-black transition-all duration-200 hover:text-opacity-80">
                         ticket </a>
 
