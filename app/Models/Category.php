@@ -8,10 +8,13 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class Category extends Model
 {
-    use ImageUpload;
+    use ImageUpload , QueryCacheable;
+    public $cacheFor = 3600;
+    protected  static bool $flushCacheOnUpdate = true;
 
     protected $with = ['image'];
 

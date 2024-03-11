@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Auth;
 use PDF;
 
@@ -13,11 +14,11 @@ class PDFController extends Controller
     {
         return view('pdf_ticket');
     }
+
     public function generatePDF(Request $request)
     {
         $data = $request->all();
         $data['username'] = Auth::user()->name;
-//        dd($data);
         $pdf = PDF::loadView('pdf_ticket', compact('data'));
         return $pdf->download('document.pdf');
     }

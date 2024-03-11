@@ -10,9 +10,9 @@
                 </div>
             @endif
             <div
-                class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
+                    class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
                 <div
-                    class="relative bg-clip-border rounded-xl overflow-hidden bg-transparent text-gray-700 shadow-none m-0 flex items-center justify-between p-6">
+                        class="relative bg-clip-border rounded-xl overflow-hidden bg-transparent text-gray-700 shadow-none m-0 flex items-center justify-between p-6">
                     <h6>Réservation</h6>
 
 
@@ -30,9 +30,9 @@
                                 <x-elements.th>Valider</x-elements.th>
                             </tr>
                             </thead>
-                            <tbody>
+                            <tbody >
                             @forelse ($reservations as $reservation)
-                                <tr>
+                                <tr class="{{ $reservation->isConfirmed ? 'bg-green-700 text-white ' : 'bg-red-700 text-white' }}">
                                     <x-elements.td> {{$reservation->id}}</x-elements.td>
                                     <x-elements.td> {{$reservation->event->title}}</x-elements.td>
                                     <x-elements.td> {{$reservation->user->name}}</x-elements.td>
@@ -42,7 +42,8 @@
                                             <form action="{{route('decline',$reservation)}}" method="post">
                                                 @csrf
                                                 <button
-                                                    type="submit">
+                                                        type="submit"
+                                                        class="hover:bg-red-200 hover:text-white  rounded-2xl transition-all">
                                                     <x-svg-icon name="delete"></x-svg-icon>
                                                 </button>
                                             </form>
@@ -56,7 +57,8 @@
                                         <form action="{{route('valider',$reservation)}}" method="post">
                                             @csrf
                                             <button
-                                                type="submit">
+                                                    type="submit"
+                                                    class="hover:bg-green-200 hover:text-white p-1 rounded-2xl">
                                                 <x-svg-icon name="add"></x-svg-icon>
                                             </button>
                                         </form>

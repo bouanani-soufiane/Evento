@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 
@@ -45,13 +46,13 @@
                        class="text-base font-semibold text-black transition-all duration-200 hover:text-opacity-80">
                         Accueil
                     </a>
-
+                @can('can login')
 
                     <a href="{{route('ticket.index')}}" title=""
                        class="text-base font-semibold text-black transition-all duration-200 hover:text-opacity-80">
                         ticket </a>
 
-
+                @endcan
                     <div class="w-px h-5 bg-black/20"></div>
 
 

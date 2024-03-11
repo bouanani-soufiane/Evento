@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
                 $events = Event::where('user_id', $userId)->get();
                 $eventCount = $events->count();
                 $eventIds = $events->pluck('id')->toArray();
-                $reservationCount = Reservation::whereIn('event_id',$eventIds)->count();
+                $reservationCount = Reservation::whereIn('event_id', $eventIds)->count();
                 $reservationsCountPerEvent = Reservation::whereIn('event_id', $eventIds)
                     ->select('event_id', \DB::raw('count(*) as reservations_count'))
                     ->groupBy('event_id')

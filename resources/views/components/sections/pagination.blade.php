@@ -9,7 +9,7 @@
                     <span aria-disabled="true" aria-label="@lang('pagination.previous')"
                           class="relative inline-flex items-center px-2  text-sm font-medium ">
                                    <svg
-                                       class="h-7 w-7 rounded-full bg-black hover:fill-white dark:fill-white dark:hover:fill-black dark:hover:bg-white"
+                                       class="h-7 w-7 rounded-full bg-green-300 text-white   fill-current "
                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                         <path d="M13.293 6.293L7.58 12l5.7 5.7 1.41-1.42 -4.3-4.3 4.29-4.293Z"></path>
                                    </svg>
@@ -21,7 +21,7 @@
                                                  <span aria-disabled="true" aria-label="@lang('pagination.previous')"
                                                        class="relative inline-flex items-center px-2  text-sm font-medium ">
                                                 <svg
-                                                    class=" h-7 w-7 rounded-full bg-black hover:fill-white dark:fill-white dark:hover:fill-black dark:hover:bg-white"
+                                                    class=" h-7 w-7 rounded-full bg-green-500   fill-current text-white hover:text-green   "
                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                                     <path
                                                         d="M13.293 6.293L7.58 12l5.7 5.7 1.41-1.42 -4.3-4.3 4.29-4.293Z"></path>
@@ -35,22 +35,21 @@
                     <a href="{{ $model->nextPageUrl() }}" rel="next"
                        aria-label="@lang('pagination.next')"
                        class="relative inline-flex items-center text-sm font-medium ">
-                                                 <span aria-disabled="true" aria-label="@lang('pagination.previous')"
-                                                       class="relative inline-flex items-center px-2  text-sm font-medium ">
+
                                                 <svg
-                                                    class="h-7 w-7 rounded-full bg-black hover:fill-white dark:fill-white dark:hover:fill-black dark:hover:bg-white"
+                                                    class="h-7 w-7 rounded-full bg-green-500 fill-current text-white hover:text-green  "
                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                                     <path
                                                         d="M10.7 17.707l5.7-5.71 -5.71-5.707L9.27 7.7l4.29 4.293 -4.3 4.29Z"></path>
                                                 </svg>
- </span>
+
 
                     </a>
                 @else
                     <span aria-disabled="true" aria-label="@lang('pagination.next')"
                           class="relative inline-flex items-center px-2 py-2 text-sm font-medium ">
                                    <svg
-                                       class="h-7 w-7 rounded-full bg-black hover:fill-white dark:fill-white dark:hover:fill-black dark:hover:bg-white"
+                                       class="h-7 w-7 rounded-full  bg-gray-200 fill-white "
                                        xmlns="http:white dark:border-gray.org/2000/svg" viewBox="0 0 24 24">
                                         <path
                                             d="M10.7 17.707l5.7-5.71 -5.71-5.707L9.27 7.7l4.29 4.293 -4.3 4.29Z"></path>

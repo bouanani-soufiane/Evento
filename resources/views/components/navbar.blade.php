@@ -26,19 +26,11 @@
             </button>
 
             <div class="hidden ml-auto lg:flex lg:items-center lg:justify-center lg:space-x-10">
-                <a href="#" title=""
+                <a href="/home" title=""
                    class="text-base font-semibold text-black transition-all duration-200 hover:text-opacity-80">
                     Accueil
                 </a>
-
-
-                <a href="#" title=""
-                   class="text-base font-semibold text-black transition-all duration-200 hover:text-opacity-80">
-                    Catégories </a>
-
-
                 <div class="w-px h-5 bg-black/20"></div>
-
 
 
                 @if (Auth::check())
@@ -54,7 +46,7 @@
                 @else
                     <a href="{{ route('register') }}" title=""
                        class="inline-flex items-center justify-center px-5 py-2.5 text-base font-semibold text-black border-2 border-black hover:bg-black hover:text-white transition-all duration-200 focus:bg-black focus:text-white"
-                       role="button"> S'inscrire  </a>
+                       role="button"> S'inscrire </a>
                 @endif
             </div>
         </div>

@@ -8,3 +8,4 @@ installpackages:
 	./vendor/bin/sail composer require beyondcode/laravel-query-detector --dev
 	./vendor/bin/sail composer require laravel/telescope
 	./vendor/bin/sail php artisan telescope:install
+	./vendor/bin/sail composer require timwassenburg/laravel-service-generator --dev

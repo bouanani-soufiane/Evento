@@ -4,7 +4,7 @@
 <div class="flex flex-wrap mx-3 w-full mx-auto">
     <!-- card1 -->
     @can('list users')
-        <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+        <div class="w-full max-w-full px-3 mb-6 lg:w-1/3 md:w-1/3">
             <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
                 <div class="flex-auto p-4">
                     <div class="flex flex-row -mx-3">
@@ -20,7 +20,7 @@
                         </div>
                         <div class="px-3 text-right basis-1/3">
                             <div
-                                class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                                    class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
                                 <svg class="w-9 h-11 text-white dark:text-white" aria-hidden="true"
                                      xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                     <path fill-rule="evenodd"
@@ -35,7 +35,7 @@
         </div>
     @endcan
     <!-- card2 -->
-    <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+    <div class="w-full max-w-full px-3 mb-6 lg:w-1/3 md:w-1/3">
         <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
             <div class="flex-auto p-4">
                 <div class="flex flex-row -mx-3">
@@ -50,10 +50,15 @@
                     </div>
                     <div class="px-3 text-right basis-1/3">
                         <div
-                            class="inline-block w-12 h-12 text-center text-white my-a rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
-                            <svg class="w-9 h-11 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                <path fill-rule="#fff" d="M12 14a3 3 0 0 1 3-3h4a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-4a3 3 0 0 1-3-3Zm3-1a1 1 0 1 0 0 2h4v-2h-4Z" clip-rule="evenodd"/>
-                                <path fill-rule="#fff" d="M12.3 3.3a1 1 0 0 1 1.4 0L16.4 6h-2.8l-1.3-1.3a1 1 0 0 1 0-1.4Zm.1 2.7L9.7 3.3a1 1 0 0 0-1.4 0L5.6 6h6.8ZM4.6 7A2 2 0 0 0 3 9v10c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2h-4a5 5 0 0 1 0-10h4a2 2 0 0 0-1.5-2h-13Z" clip-rule="evenodd"/>
+                                class="inline-block w-12 h-12 text-center text-white my-a rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                            <svg class="w-9 h-11 text-white dark:text-white" aria-hidden="true"
+                                 xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="#fff"
+                                      d="M12 14a3 3 0 0 1 3-3h4a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-4a3 3 0 0 1-3-3Zm3-1a1 1 0 1 0 0 2h4v-2h-4Z"
+                                      clip-rule="evenodd"/>
+                                <path fill-rule="#fff"
+                                      d="M12.3 3.3a1 1 0 0 1 1.4 0L16.4 6h-2.8l-1.3-1.3a1 1 0 0 1 0-1.4Zm.1 2.7L9.7 3.3a1 1 0 0 0-1.4 0L5.6 6h6.8ZM4.6 7A2 2 0 0 0 3 9v10c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2h-4a5 5 0 0 1 0-10h4a2 2 0 0 0-1.5-2h-13Z"
+                                      clip-rule="evenodd"/>
                             </svg>
 
                         </div>
@@ -64,7 +69,7 @@
     </div>
 
     <!-- card3 -->
-    <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+    <div class="w-full max-w-full px-3 mb-6 lg:w-1/3 md:w-1/3">
         <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
             <div class="flex-auto p-4">
                 <div class="flex flex-row -mx-3">
@@ -79,7 +84,7 @@
                     </div>
                     <div class="px-3 text-right basis-1/3">
                         <div
-                            class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                                class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                  stroke="#fff" class="w-10 h-11">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -93,38 +98,46 @@
     </div>
 
     <!-- card4 -->
-    <div class="w-full max-w-full px-3 sm:w-1/2 sm:flex-none xl:w-1/4">
-        <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
-            <div class="flex-auto p-4">
-                <div class="flex flex-row -mx-3">
-                    <div class="flex-none w-2/3 max-w-full px-3">
-                        <div>
-                            <p class="mb-0 font-sans font-semibold leading-normal text-sm">Top événement </p>
-                            <h5 class="mb-0 font-bold">
+    @can('create event')
 
-                            </h5>                                <span
-                                class="leading-normal text-sm font-weight-bolder text-lime-500">@if($mostReservedEvent == null)
+        <div class="w-full max-w-full px-3 sm:w-1/2 sm:flex-none md:w-1/3 xl:w-1/4">
+            <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+                <div class="flex-auto p-4">
+                    <div class="flex flex-row -mx-3">
+                        <div class="flex-none w-2/3 max-w-full px-3">
+                            <div>
+                                <p class="mb-0 font-sans font-semibold leading-normal text-sm">Top événement </p>
+                                <h5 class="mb-0 font-bold">
 
-                                    pas d'événement
-                                @else
-                                    {{$mostReservedEvent}}
-                                @endif
+                                </h5>                                <span
+                                        class="leading-normal text-sm font-weight-bolder text-lime-500">
+                                    @if($mostReservedEvent == null)
+
+                                        pas d'événement
+                                    @else
+                                        {{$mostReservedEvent}}
+                                    @endif
 
 
                             </span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="px-3 text-right basis-1/3">
-                        <div
-                            class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500 text-white text-3xl">
+                        <div class="px-3 text-right basis-1/3">
+                            <div
+                                    class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500 text-white text-3xl">
                            <span class=" pt-3 ">
-                                {{$mostReservedEventCount}}
+                                   @if($mostReservedEvent == null)
+                                   0
+                               @else
+                                   {{$mostReservedEventCount}}
+                               @endif
                            </span>
 
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endcan
 </div>

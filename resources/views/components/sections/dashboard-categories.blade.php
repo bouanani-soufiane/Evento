@@ -9,6 +9,14 @@
                     <span class="block sm:inline">{{ session('success') }}</span>
                 </div>
             @endif
+            @if(session('error'))
+                <div class=" p-4 my-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
+                     role="alert"
+                     id="successMessage">
+                    <strong class="font-bold">error!</strong>
+                    <span class="block sm:inline">{{ session('error') }}</span>
+                </div>
+            @endif
             <div
                 class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
                 <div

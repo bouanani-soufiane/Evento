@@ -10,5 +10,4 @@ use Parental\HasParent;
 class Participant extends User
 {
     use HasFactory, HasParent;
-
 }

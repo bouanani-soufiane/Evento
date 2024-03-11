@@ -35,7 +35,7 @@ class EventController extends Controller
     public function show(Event $event)
     {
         $user = Auth::user();
-        if ( Auth::user() &&  $user->can('make reservation')) {
+        if (Auth::user() && $user->can('make reservation')) {
             $place = Reservation::where('event_id', $event->id)->count();
             return view('single_event', compact('event', 'place'));
         } else {

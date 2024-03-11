@@ -29,7 +29,6 @@
             </select>
 
             <input type="file" id="myFile" name="image">
-{{--            <input type="text" id="user_id" name="user_id" value="{{Auth::user()->id}}">--}}
         </div>
         <div class="flex justify-center">
             <button type="submit"

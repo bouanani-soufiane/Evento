@@ -35,12 +35,12 @@ class RegisteredUserController extends Controller
 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'type' => ['required']
         ]);
 
-        if ($request->type == 'participant'){
+        if ($request->type == 'participant') {
             $user = Participant::create([
                 'name' => $request->name,
                 'email' => $request->email,
@@ -48,10 +48,10 @@ class RegisteredUserController extends Controller
             ]);
             $user->assignRole('participant');
             $user->givePermissionTo('make reservation');
+            $user->givePermissionTo('can login');
             return redirect(RouteServiceProvider::LOGIN);
 
-        }elseif($request->type == 'organiser')
-        {
+        } elseif ($request->type == 'organiser') {
             $user = Organiser::create([
                 'name' => $request->name,
                 'email' => $request->email,
@@ -62,6 +62,7 @@ class RegisteredUserController extends Controller
             $user->givePermissionTo('edit event');
             $user->givePermissionTo('delete event');
             $user->givePermissionTo('valider reservation');
+            $user->givePermissionTo('can login');
             return redirect(RouteServiceProvider::LOGIN);
 
         }

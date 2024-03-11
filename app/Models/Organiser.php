@@ -10,5 +10,4 @@ use Parental\HasParent;
 class Organiser extends User
 {
     use HasFactory, HasParent;
-
 }

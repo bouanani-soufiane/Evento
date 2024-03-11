@@ -7,61 +7,33 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $users = User::with('roles')->paginate(5);
+        $users = User::with('roles')->withTrashed()->paginate(5);
 
         return view("admin.users", compact('users'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function deleteUser($id)
     {
-        //
-    }
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->back()->with('success', 'utilisatuer supprimer avec succès');
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function restoreUser($id)
     {
-        //
+        $user = User::withTrashed()->find($id);
+        $user->restore();
+        return redirect()->back()->with('success', 'utilisateur restaurée avec succès');
+
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function deleteUserForever($id)
     {
-        //
-    }
+        $user = User::withTrashed()->find($id);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+        $user->forceDelete();
+        return redirect()->back()->with('success', 'utilisateur supprimer définitivement  avec succès');
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

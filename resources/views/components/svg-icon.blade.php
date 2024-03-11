@@ -56,12 +56,10 @@
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/>
     </svg>
 @elseif($name === "add")
-    <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-         xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd"
-              d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-              clip-rule="evenodd"></path>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
     </svg>
+
 @elseif($name === "more-details")
     <span
         class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-blye-500 group-hover:translate-x-0 ease">
@@ -75,6 +73,23 @@
                <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12h4M4 18v-1a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v1c0 .6-.4 1-1 1H5a1 1 0 0 1-1-1Zm8-10a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
           </svg>
+</span>
+@elseif($name === "user-deblock")
+    <span
+        class="inline-block w-8 h-8 text-center text-white font-bold text-lg rounded-lg bg-gray-500">
+               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
+        </svg>
+
+</span>
+@elseif($name === "delete-forever")
+    <span
+        class="inline-block w-8 h-8 text-center text-white font-bold text-lg rounded-lg bg-gray-500">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+
+
 </span>
 @elseif($name === "block")
     <span
@@ -90,11 +105,26 @@
         class="inline-block w-8 h-8 text-center text-white font-bold text-lg rounded-lg bg-gradient-to-tl from-red-500 to-pink-500">
         <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" class="w-6 h-6"  stroke="currentColor" viewBox="0 0 32 32"><g data-name="no image"><path d="M24 2H8a6 6 0 0 0-6 6v16a6 6 0 0 0 6 6h3a1 1 0 0 0 0-2H8a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4h16a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4h-9a1 1 0 0 0 0 2h9a6 6 0 0 0 6-6V8a6 6 0 0 0-6-6z"/><path d="M25.71 6.29a1 1 0 0 0-1.42 0l-18 18a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l18-18a1 1 0 0 0 0-1.42z"/></g></svg>
 </span>
+@elseif($name === "allow")
+    <span
+            class="inline-block w-8 h-8 text-center text-white font-bold text-lg rounded-lg bg-gradient-to-tl from-red-500 to-pink-500">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" class="w-6 h-6"  stroke="currentColor" viewBox="0 0 32 32"><g data-name="no image"><path d="M24 2H8a6 6 0 0 0-6 6v16a6 6 0 0 0 6 6h3a1 1 0 0 0 0-2H8a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4h16a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4h-9a1 1 0 0 0 0 2h9a6 6 0 0 0 6-6V8a6 6 0 0 0-6-6z"/><path d="M25.71 6.29a1 1 0 0 0-1.42 0l-18 18a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l18-18a1 1 0 0 0 0-1.42z"/></g></svg>
+</span>
 @elseif($name === "giveReservation")
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+    <span
+            class="inline-block w-8 h-8 text-center text-white font-bold text-lg rounded-lg bg-green-700">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
         <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
     </svg>
+</span>
+@elseif($name === "restoreUser")
+    <span
+            class="inline-block w-8 h-8 text-center text-white font-bold text-lg rounded-lg bg-green-700">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+          </svg>
 
+</span>
 @elseif($name === "validate")
 
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"

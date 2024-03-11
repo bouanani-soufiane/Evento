@@ -67,6 +67,7 @@ class DatabaseSeeder extends Seeder
         Permission::updateOrCreate(['name' => 'create category']);
         Permission::updateOrCreate(['name' => 'make reservation']);
         Permission::updateOrCreate(['name' => 'valider reservation']);
+        Permission::updateOrCreate(['name' => 'can login']);
 
         $user = Admin::create([
             'name' => 'admin',
@@ -86,6 +87,7 @@ class DatabaseSeeder extends Seeder
         $role->givePermissionTo('create category');
         $role->givePermissionTo('edit category');
         $role->givePermissionTo('delete category');
+        $role->givePermissionTo('can login');
 
 
     }

@@ -26,12 +26,18 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
-
         $request->session()->regenerate();
 
         $user = Auth::user();
 
+        if (!$user->hasPermissionTo('can login')) {
 
+            $request->session()->invalidate();
+
+            $request->session()->regenerateToken();
+            abort(403, 'Vous êtes actuellement bloqué! ');
+
+        }
 
 
         if ($user->hasRole('admin')) {

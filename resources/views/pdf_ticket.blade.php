@@ -520,39 +520,7 @@
     }
 </style>
 <div class="box">
-    <ul class="left">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
 
-    <ul class="right">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
     <div class="ticket">
         <span class="airline">Evento</span>
         <span class="airline airlineslip">######</span>
@@ -570,7 +538,7 @@
 
                 <span class="boardingtime">Date Evenement<br><span>{{$data['date']}}</span></span>
 
-                <span class="number flightslip">Ticket N&deg;<br><span>{{$data['tikcetId']}}</span></span>
+                <span class="number flightslip">Ticket N&deg;<br><span>{{$data[   'tikcetId']}}</span></span>
             </div>
         </div>
         <div class="barcode"></div>

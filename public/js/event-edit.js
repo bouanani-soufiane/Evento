@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", function () {
         location: modal.querySelector("#localisation"),
 
     };
-    editBtn.forEach((button) =>{
+    editBtn.forEach((button) => {
         button.addEventListener("click", function () {
 
-        console.log(event.bookingType.value);
+            console.log(event.bookingType.value);
             let slug = this.getAttribute("data-slug");
             event.location.value = this.getAttribute("data-localisation");
             event.title.value = this.getAttribute("data-title");

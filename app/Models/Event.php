@@ -3,16 +3,20 @@
 namespace App\Models;
 
 use App\Enums\ReservationTypeEnum;
+use App\trait\ImageUpload;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class Event extends Model
 {
-    use HasFactory, Sluggable;
+    use HasFactory, Sluggable , ImageUpload , QueryCacheable;
+    public $cacheFor = 3600;
+    protected  static bool $flushCacheOnUpdate = true;
 
     protected $with = ['category', 'image'];
 
@@ -27,9 +31,8 @@ class Event extends Model
 
     public function scopeFilterSearch($query, array $filterSearch)
     {
-
         $query->when($filterSearch['search'] ?? false, fn($query, $search) => $query
-            ->where('title', 'like', '%' . $search . '%')
+            ->where('title', 'LIKE', '%' . $search . '%')
             ->where('isVerified', '=', true)
         );
         $query->when($filterSearch['filter'] ?? false, fn($query, $search) => $query
@@ -46,6 +49,7 @@ class Event extends Model
     {
         return 'slug';
     }
+
     protected $fillable = [
         'title',
         'description',

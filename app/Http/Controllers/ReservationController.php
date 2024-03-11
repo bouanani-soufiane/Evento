@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\Reserved;
 use App\Http\Requests\ReservationRequest;
 use App\Models\Event;
 use App\Models\Reservation;
@@ -13,8 +14,8 @@ class ReservationController extends Controller
 {
     public function show($id)
     {
-        $events = Event::where('user_id', $id)->where('reservationType','manual')->pluck('id');
-        $reservations = Reservation::whereIn('event_id',$events)->get();
+        $events = Event::where('user_id', $id)->where('reservationType', 'manual')->pluck('id');
+        $reservations = Reservation::whereIn('event_id', $events)->get();
 
 
         return view("organisateur.reservation", compact('reservations'));
@@ -24,6 +25,8 @@ class ReservationController extends Controller
     {
         $reservation_count = Reservation::where('event_id', $request->event_id)->count();
         $total_place = Event::where('id', $request->event_id)->value('totalPlace');
+        $reservationType = Event::where('id', $request->event_id)->value('reservationType');
+
 
         $place_left = $total_place - $reservation_count;
 
@@ -40,7 +43,15 @@ class ReservationController extends Controller
                 }
 
                 DB::commit();
-                return redirect()->back()->with("success", "Réservation créée avec succès.");
+
+                if ($reservationType->value == 'manual') {
+                    return redirect()->back()->with("success", "veuillez attendre la confirmation de l'organisateur.");
+                } else {
+                    Reserved::dispatch($reservation);
+                    return redirect()->back()->with("success", "Réservation créée avec succès.");
+
+                }
+
             } else {
                 return redirect()->back()->with("error", "Il n'y a pas suffisamment de places disponibles.");
             }
@@ -48,11 +59,6 @@ class ReservationController extends Controller
             DB::rollback();
             return redirect()->back()->with("error", "Une erreur est survenue lors de la création de la réservation.");
         }
-    }
-
-    public function edit(Reservation $reservation)
-    {
-        //
     }
 
     public function valider(Reservation $reservation)

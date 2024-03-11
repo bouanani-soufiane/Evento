@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
         name: modal.querySelector("#name"),
         description: modal.querySelector("#description"),
     };
-    editBtn.forEach((button) =>{
+    editBtn.forEach((button) => {
         button.addEventListener("click", function () {
             let slug = this.getAttribute("data-slug");
             category.name.value = this.getAttribute("data-name");

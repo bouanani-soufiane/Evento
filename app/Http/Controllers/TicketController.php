@@ -11,8 +11,13 @@ class TicketController extends Controller
 {
     public function index()
     {
-        $tickets = Reservation::where('user_id', Auth::id())->get();
+        $tickets = Reservation::where('user_id', Auth::id())
+            ->where('isConfirmed', 'true')
+            ->get();
+        $ticketsPendingCount = Reservation::where('user_id', Auth::id())
+            ->where('isConfirmed', 'false')
+            ->count();
 
-        return view('ticket',compact('tickets'));
+        return view('ticket', compact('tickets', 'ticketsPendingCount'));
     }
 }
