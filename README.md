@@ -39,3 +39,12 @@ cp .env.example .env
 ## Aperçu du diagramme de cas d'utilisation
 ![DiscoverWorld Preview](/public/uml/Use_Case.png)
 
+## Aperçu du site Web
+![DiscoverWorld Preview](/public/display/4.png)
+![DiscoverWorld Preview](/public/display/5.png)
+![DiscoverWorld Preview](/public/display/6.png)
+![DiscoverWorld Preview](/public/display/7.png)
+![DiscoverWorld Preview](/public/display/8.png)
+![DiscoverWorld Preview](/public/display/1.png)
+![DiscoverWorld Preview](/public/display/2.png)
+![DiscoverWorld Preview](/public/display/3.png)
